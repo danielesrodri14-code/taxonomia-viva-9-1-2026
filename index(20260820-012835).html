@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misión Taxonomía Viva 9-1</title>
+<style>
+:root{--verde:#16a34a;--azul:#2563eb;--morado:#7c3aed;--amarillo:#facc15;--rosa:#ec4899;--fondo:#f0f9ff;--texto:#1f2937;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#e0f2fe,#dcfce7,#fef9c3);color:var(--texto)}
+header{padding:28px 18px;text-align:center;background:linear-gradient(90deg,#0f766e,#2563eb,#7c3aed);color:white}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0 0}
+.wrap{max-width:1180px;margin:auto;padding:18px}
+.card{background:var(--card);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 8px 22px #0002;border:1px solid #dbeafe}
+.login{max-width:460px;margin:35px auto}
+input,textarea,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;margin:8px 0;font-size:16px}
+textarea{min-height:95px}
+button{border:0;border-radius:14px;padding:11px 16px;margin:4px;background:var(--azul);color:white;font-weight:bold;cursor:pointer}
+button:hover{filter:brightness(.95)}
+.green{background:var(--verde)}
+.pink{background:var(--rosa)}
+.purple{background:var(--morado)}
+.hidden{display:none}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;margin:3px;font-size:13px}
+.act{border-left:8px solid var(--azul)}
+.reto{border-left:8px solid var(--rosa)}
+.nivel{border-left:8px solid var(--verde)}
+h2{color:#0f766e}
+h3{color:#1d4ed8;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}
+td,th{border:1px solid #cbd5e1;padding:10px;vertical-align:top}
+th{background:#2563eb;color:#fff}
+.small{font-size:14px;color:#475569}
+.warning{background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:12px}
+footer{text-align:center;padding:22px;color:#475569}
+.clado{font-family:monospace;background:#f8fafc;border:1px dashed #94a3b8;border-radius:14px;padding:14px;white-space:pre;overflow:auto}
+.badge{background:#fef3c7;color:#92400e;padding:3px 8px;border-radius:999px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>🌿 Misión Taxonomía Viva 9-1</h1>
+<p>Colegio Técnico Lorenzo de Salazar · Jesús María, Santander</p>
+<p>Biología grado noveno · 25 actividades interactivas</p>
+</header>
+
+<div class="wrap">
+<section id="login" class="card login">
+<h2>Ingreso</h2>
+<p>Usuarios para 9-1: <b>estudiante01</b> hasta <b>estudiante60</b>.</p>
+<label>Usuario</label>
+<input id="user" placeholder="estudiante01">
+<label>Contraseña</label>
+<input id="pass" type="password" placeholder="bio2026-01">
+<button onclick="login()">Ingresar</button>
+<p id="msg" class="small"></p>
+<div class="warning"><b>Ejemplo:</b> estudiante01 / bio2026-01</div>
+</section>
+
+<section id="app" class="hidden">
+<div class="card">
+<h2>Bienvenido/a: <span id="who"></span></h2>
+<p>Responde las actividades. Tus respuestas quedan guardadas en este dispositivo. Al finalizar, muestra o descarga tu evidencia para la docente.</p>
+<div class="nav">
+<button onclick="show('inicio')">Inicio</button>
+<button onclick="show('taxones')">Taxones</button>
+<button onclick="show('actividades')">Actividades 1-25</button>
+<button onclick="show('cladograma')">Cladograma</button>
+<button onclick="show('evidencia')">Evidencia</button>
+<button class="pink" onclick="salir()">Salir</button>
+</div>
+</div>
+
+<section id="inicio" class="panel card">
+<h2>Propósito</h2>
+<p>Comprender cómo se clasifican los seres vivos y cómo se relacionan evolutivamente mediante la taxonomía, la sistemática y la cladística.</p>
+<div class="grid">
+<div class="card nivel"><h3>Meta cognitiva</h3><p>Reconocer dominios, reinos y niveles taxonómicos.</p></div>
+<div class="card nivel"><h3>Meta procedimental</h3><p>Clasificar organismos y justificar con características observables.</p></div>
+<div class="card nivel"><h3>Meta actitudinal</h3><p>Participar con responsabilidad, respeto y trabajo colaborativo.</p></div>
+</div>
+</section>
+
+<section id="taxones" class="panel card hidden">
+<h2>Niveles taxonómicos</h2>
+<table>
+<tr><th>Taxón</th><th>Concepto breve</th><th>Ejemplo con la vaca</th></tr>
+<tr><td>Dominio</td><td>Tipo de célula</td><td>Eukarya</td></tr>
+<tr><td>Reino</td><td>Forma general de vida</td><td>Animalia</td></tr>
+<tr><td>Filo</td><td>Organización corporal</td><td>Chordata</td></tr>
+<tr><td>Clase</td><td>Grupo general</td><td>Mammalia</td></tr>
+<tr><td>Orden</td><td>Grupo específico</td><td>Artiodactyla</td></tr>
+<tr><td>Familia</td><td>Grupo cercano</td><td>Bovidae</td></tr>
+<tr><td>Género</td><td>Parentesco directo</td><td><i>Bos</i></td></tr>
+<tr><td>Especie</td><td>Organismos semejantes</td><td><i>Bos taurus</i></td></tr>
+</table>
+<p><span class="tag">Dominio</span><span class="tag">Reino</span><span class="tag">Filo</span><span class="tag">Clase</span><span class="tag">Orden</span><span class="tag">Familia</span><span class="tag">Género</span><span class="tag">Especie</span></p>
+</section>
+
+<section id="actividades" class="panel card hidden">
+<h2>Actividades 1 a 25</h2>
+<p class="small">Responde con tus palabras. Puedes apoyarte en el cuaderno, la explicación de clase y la observación del entorno.</p>
+<div id="acts"></div>
+<button class="green" onclick="guardar()">Guardar respuestas</button>
+<button onclick="show('evidencia')">Ver evidencia</button>
+</section>
+
+<section id="cladograma" class="panel card hidden">
+<h2>Cladograma</h2>
+<p>Un cladograma es un árbol de parentesco evolutivo. No muestra quién es “mejor”, sino qué grupos comparten ancestros y rasgos derivados.</p>
+<div class="clado">Ancestro común
+│
+├── Grupo A
+│
+└── Nodo ── Grupo B
+        └── Grupo C</div>
+<table>
+<tr><th>Parte</th><th>Definición</th></tr>
+<tr><td>Raíz</td><td>Origen del árbol o ancestro más antiguo.</td></tr>
+<tr><td>Rama</td><td>Línea que representa un linaje evolutivo.</td></tr>
+<tr><td>Nodo</td><td>Punto de división; representa un ancestro común.</td></tr>
+<tr><td>Descendiente</td><td>Grupo que proviene de un ancestro.</td></tr>
+<tr><td>Rasgo compartido</td><td>Característica heredada por varios organismos.</td></tr>
+<tr><td>Sinapomorfía</td><td>Rasgo derivado compartido que une a un clado.</td></tr>
+<tr><td>Clado</td><td>Ancestro común y todos sus descendientes.</td></tr>
+<tr><td>Grupo hermano</td><td>Dos grupos con un ancestro común más reciente.</td></tr>
+</table>
+</section>
+
+<section id="evidencia" class="panel card hidden">
+<h2>Mis respuestas</h2>
+<p class="small">Descarga o copia este resumen para entregarlo.</p>
+<textarea id="out" style="min-height:360px" readonly></textarea><br>
+<button onclick="resumen()">Actualizar resumen</button>
+<button class="green" onclick="descargar()">Descargar evidencia</button>
+<button class="pink" onclick="borrar()">Borrar respuestas de este dispositivo</button>
+</section>
+</section>
+</div>
+
+<footer>Taxonomía Viva 9-1 · Proyecto de aula · Ciencias Naturales</footer>
+
+<script>
+const preguntas=[
+['Actividad 1. Mi punto de partida','¿Qué entiendes por clasificar los seres vivos? Escribe una idea y un ejemplo de la vida cotidiana.'],
+['Actividad 2. Organización cotidiana','Menciona tres formas en que las personas clasifican objetos, alimentos, animales o plantas en la vida diaria.'],
+['Actividad 3. Taxonomía','Define taxonomía con tus palabras y explica para qué sirve en biología.'],
+['Actividad 4. Carl Linneo','Explica por qué Carl Linneo fue importante para la clasificación de los seres vivos.'],
+['Actividad 5. Nombre científico','¿Por qué es útil que cada especie tenga un nombre científico universal? Da un ejemplo.'],
+['Actividad 6. Orden de taxones','Escribe los taxones desde el más general hasta el más específico.'],
+['Actividad 7. Dominio','Define dominio y explica la diferencia general entre Bacteria, Archaea y Eukarya.'],
+['Actividad 8. Reino','Explica qué es un reino y menciona los cinco reinos tradicionales.'],
+['Actividad 9. Reino Animalia','Escribe tres características del reino Animalia y tres ejemplos.'],
+['Actividad 10. Reino Plantae','Escribe tres características del reino Plantae y tres ejemplos.'],
+['Actividad 11. Reino Fungi','Explica por qué los hongos no son plantas. Menciona ejemplos.'],
+['Actividad 12. Reino Protista','Describe qué tipos de organismos se agrupan en Protista.'],
+['Actividad 13. Reino Monera','Explica qué organismos incluye el reino Monera en la clasificación tradicional.'],
+['Actividad 14. Filo','Define filo y explica por qué en animales se usa para hablar de organización corporal.'],
+['Actividad 15. Filos animales','Escoge tres filos animales y escribe una característica y un ejemplo de cada uno.'],
+['Actividad 16. Clase','Define clase en dos palabras y luego amplía la explicación con un ejemplo.'],
+['Actividad 17. Orden','Define orden en dos palabras y explica cómo se diferencia de clase.'],
+['Actividad 18. Clase y orden','Compara clase y orden usando un animal: mamíferos, aves, anfibios o reptiles.'],
+['Actividad 19. Familia','Define familia como taxón y menciona por qué es un grupo más cercano que el orden.'],
+['Actividad 20. Género','Define género y explica por qué se escribe con mayúscula inicial en el nombre científico.'],
+['Actividad 21. Especie','Define especie y explica qué significa descendencia fértil.'],
+['Actividad 22. Clasificación completa','Clasifica un ser vivo de tu entorno hasta donde puedas: reino, filo, clase, orden, familia, género y especie.'],
+['Actividad 23. Cladograma','Explica qué representa un cladograma y qué significa un nodo.'],
+['Actividad 24. Rasgos compartidos','Menciona tres rasgos compartidos que podrían usarse para comparar animales en un cladograma.'],
+['Actividad 25. Reflexión final','¿Por qué la taxonomía ayuda a comprender y cuidar la biodiversidad del territorio?']
+];
+const usuarios={docente:'taxonomia2026'};
+for(let i=1;i<=60;i++){let n=String(i).padStart(2,'0');usuarios['estudiante'+n]='bio2026-'+n}
+let actual=localStorage.getItem('taxonomia_91_actual')||'';
+function key(){return 'taxonomia_viva_91_'+actual}
+function login(){let u=document.getElementById('user').value.trim(),p=document.getElementById('pass').value.trim();if(usuarios[u]===p){actual=u;localStorage.setItem('taxonomia_91_actual',u);iniciar()}else{document.getElementById('msg').innerHTML='Usuario o contraseña incorrectos. Revise el número asignado.'}}
+function iniciar(){document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('who').textContent=actual;cargar();show('inicio')}
+function show(id){document.querySelectorAll('.panel').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='evidencia')resumen()}
+function pintar(){let cont=document.getElementById('acts');cont.innerHTML='';preguntas.forEach((p,i)=>{let n=i+1;cont.insertAdjacentHTML('beforeend',`<div class="card act"><h3>${p[0]} <span class="badge">${n}/25</span></h3><p>${p[1]}</p><textarea id="r${n}" placeholder="Escribe tu respuesta aquí..."></textarea></div>`)})}
+function guardar(){let d={fecha:new Date().toLocaleString(),usuario:actual,respuestas:{}};for(let i=1;i<=25;i++){d.respuestas[i]=document.getElementById('r'+i)?.value||''}localStorage.setItem(key(),JSON.stringify(d));alert('Respuestas guardadas correctamente.')}
+function cargar(){pintar();let raw=localStorage.getItem(key());if(!raw)return;let d=JSON.parse(raw);for(let i=1;i<=25;i++){let e=document.getElementById('r'+i);if(e)e.value=d.respuestas?.[i]||''}}
+function resumen(){let raw=localStorage.getItem(key());let d=raw?JSON.parse(raw):{usuario:actual,fecha:new Date().toLocaleString(),respuestas:{}};let t=`EVIDENCIA TAXONOMÍA VIVA 9-1\nEstudiante: ${actual}\nFecha: ${d.fecha||''}\n\n`;preguntas.forEach((p,i)=>{let n=i+1;t+=`${p[0]}\n${p[1]}\nRespuesta: ${d.respuestas?.[n]||''}\n\n`});document.getElementById('out').value=t}
+function descargar(){resumen();let blob=new Blob([document.getElementById('out').value],{type:'text/plain;charset=utf-8'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=actual+'_taxonomia_viva_9_1.txt';a.click()}
+function borrar(){if(confirm('¿Borrar respuestas guardadas en este dispositivo?')){localStorage.removeItem(key());cargar();resumen()}}
+function salir(){localStorage.removeItem('taxonomia_91_actual');location.reload()}
+if(actual){iniciar()}else{pintar()}
+</script>
+</body>
+</html>
